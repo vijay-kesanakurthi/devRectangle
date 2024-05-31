@@ -1,6 +1,8 @@
 package com.thoughtworks.rectangle;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 import org.junit.jupiter.api.Test;
 public class RectangleTest {
@@ -8,25 +10,25 @@ public class RectangleTest {
     @Test
     public void shouldCalculateAreaOfRectangleWhenLengthAndBreadthAre4and5 () {
         Rectangle rectangle = new Rectangle(4, 5);
-        assertEquals(20, rectangle.calculateArea());
+        assertThat( 20,is(equalTo(rectangle.calculateArea())));
     }
 
     @Test
     public void shouldCalculateAreaOfSquareWhenLengthAndBreadthAreEqual() {
         Rectangle rectangle = new Rectangle(5, 5);
-        assertEquals(25, rectangle.calculateArea());
+        assertThat(25, is(equalTo(rectangle.calculateArea())));
     }
 
     @Test
     public void shouldCalculateAreaOfRectangleWhenLengthZero() {
         Rectangle rectangle = new Rectangle(0, 5);
-        assertEquals(0, rectangle.calculateArea());
+        assertThat(0, is(equalTo(rectangle.calculateArea())));
     }
 
     @Test
     public void shouldCalculateAreaOfRectangleWhenBreadthZero() {
         Rectangle rectangle = new Rectangle(5, 0);
-        assertEquals(0, rectangle.calculateArea());
+        assertThat(0, is(equalTo(rectangle.calculateArea())));
     }
 
 }
